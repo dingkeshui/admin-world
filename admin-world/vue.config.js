@@ -52,7 +52,7 @@ module.exports = {
     // 或者，你也可以通过设置让浏览器 overlay 同时显示警告和错误
     // Type: boolean | 'warning' | 'default' | 'error'
     // Default: 'default'
-    lintOnSave:'default',
+    lintOnSave:false,
 
     // 是否使用包含运行时编译器的 Vue 构建版本。
     // 设置为 true 后你就可以在 Vue 组件中使用 template 选项了，但是这会让你的应用额外增加 10kb 左右。
