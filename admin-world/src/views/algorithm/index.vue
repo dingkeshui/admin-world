@@ -1,17 +1,13 @@
 <template>
   <div class="home">
-    <div class="main">
-      <p>这里是文字1</p>
-      <p>这里是文字2</p>
-      <p>这里是文字3</p>
-    </div>
+    算法首页
   </div>
 </template>
 
 <script>
 
 export default {
-  name: "index",
+  name: "algorithm-index",
   data(){
    return {
      value:''

@@ -1,6 +1,20 @@
+/**
+ * 
+ * 路由文件
+ * meta参数
+ * token true 需要登录
+ * password true  需要二次验证
+ * unshow true  隐藏 不显示在导航栏
+ * unleft true 掩藏左侧导航栏
+ * untop true 隐藏头部导航栏
+ * 
+ */
+
 import Vue from "vue";
 import VueRouter from "vue-router";
+import store from "@/store";
 import index from "@/views/index/index.vue";
+import content from "@/components/layout/page-content.vue";
 
 Vue.use(VueRouter);
 
@@ -12,28 +26,90 @@ const routes = [
     component: index
   },
   {
-    path: "/goods",
-    name: "goods",
-    title:'商品',
-    component: index
+    path: "/login",
+    name: "login",
+    title:'登陆',
+    component: () => import("@/views/user/login.vue"),
+    meta:{
+      unshow:true,
+      unleft:true,
+      untop:true
+    }
   },
   {
-    path: "/shop",
-    name: "shop",
-    title:'购物车',
-    component: index
+    path: "/note",
+    name: "note",
+    redirect: "/note/index",
+    component: content,
+    title:'笔记',
+    children:[
+      {
+        path: "/note/index",
+        name: "note-index",
+        title:'笔记首页',
+        meta:{
+          token:true
+        },
+        component: () => import("@/views/note/index.vue")
+      }
+    ]
   },
-  // {
-  //   path: "/about",
-  //   name: "About",
-  //   component: () =>
-  //     import("../views/About.vue")
-  // }
+  {
+    path: "/algorithm",
+    name: "algorithm",
+    redirect: "/algorithm/index",
+    component: content,
+    title:'算法',
+    children:[
+      {
+        path: "/algorithm/index",
+        name: "algorith-index",
+        title:'算法首页',
+        meta:{
+          token:true
+        },
+        component: () => import("@/views/algorithm/index.vue")
+      },
+      {
+        path: "/algorithm/some",
+        name: "algorith-some",
+        title:'算法其他',
+        meta:{
+          token:true
+        },
+        component: () => import("@/views/algorithm/some.vue")
+      }
+    ]
+  },
+  {
+    path: "/account-password",
+    name: "account-password",
+    title:'账号/密码',
+    meta:{
+      token:true
+    },
+    component: () => import("@/views/account-password/index.vue"),
+  },
 ];
 
 const router = new VueRouter({
   mode: 'history',
   routes
 });
+
+// 路由拦截
+router.beforeEach((to,from,next)=>{
+  let token = store.getters['user/userInfo'].token
+  if(to.meta&&to.meta.token&&!token){
+    next({
+      path:'/login',
+      query:{
+        to:to.path
+      }
+    })
+  } else {
+    next()
+  }
+})
 
 export default router;

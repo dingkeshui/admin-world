@@ -2,42 +2,28 @@
     <Menu
     mode="vertical"
     theme="light"
-    :active-name="this.$route.name">
-        <MenuItem 
-        v-for="(item,index) in routerlist" 
-        :key="index"
-        :to="item.to"
-        :name="item.name">
-        {{item.title}}
-        </MenuItem>
+    :active-name="$route.name">
+        <left-menu-item :routes="$router.options.routes"></left-menu-item>
     </Menu>
-    <!-- <div>123</div> -->
 </template>
 
 <script>
+import leftMenuItem from "@/components/layout/left-menu-item.vue"
+
 export default {
     name:'left-menu',
+    components:{
+        leftMenuItem
+    },
     data(){
         return {
 
         }
     },
     mounted(){
-        console.log('111',this.$route)
     },
     computed:{
-        routerlist(){
-            let routes = this.$router.options.routes
-            let arr = routes.map(val=>{
-                return {
-                    name:val.name,
-                    to:val.path,
-                    title:val.title
-                }
-            })
-            console.log(123,arr)
-            return arr
-        }
+        
     }
 }
 </script>
