@@ -23,7 +23,7 @@
 import leftMenu from "@/components/layout/left-menu.vue"
 import topHeader from "@/components/layout/top-header.vue"
 
-import { mapGetters } from 'vuex'
+import { mapGetters,mapMutations } from 'vuex'
 
 export default {
   name:"app",
@@ -41,7 +41,16 @@ export default {
 
     }
   },
-  mounted(){
+  created(){
+    let userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
+    if(userInfo){
+      this.USER_CHANGE(userInfo)
+    }
+  },
+  methods:{
+    ...mapMutations('user',[
+        'USER_CHANGE'
+    ])
   }
 }
 </script>

@@ -90,10 +90,10 @@ export default {
         display: flex;
         align-content: center;
         justify-content: center;
+        .item:nth-child(n+2){
+            margin-left: 20px;
+        }
         .item{
-            &.item{
-                margin-left: 20px;
-            }
             font-size: 34px;
             width: 70px;
             height: 70px;

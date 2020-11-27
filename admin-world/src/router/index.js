@@ -99,8 +99,8 @@ const router = new VueRouter({
 
 // 路由拦截
 router.beforeEach((to,from,next)=>{
-  let token = store.getters['user/userInfo'].token
-  if(to.meta&&to.meta.token&&!token){
+  let userInfoStorage = JSON.parse(sessionStorage.getItem('userInfo'))
+  if(to.meta&&to.meta.token&&!userInfoStorage.token){
     next({
       path:'/login',
       query:{

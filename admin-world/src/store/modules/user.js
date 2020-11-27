@@ -36,6 +36,7 @@ const mutations = {
     // 改变登陆状态
     [USER_CHANGE](state,newData){
         state.userInfo = Object.assign(state.userInfo,newData)
+        sessionStorage.setItem('userInfo', JSON.stringify(state.userInfo))
     }
 }
 
