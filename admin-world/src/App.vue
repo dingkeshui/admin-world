@@ -47,6 +47,10 @@ export default {
       this.USER_CHANGE(userInfo)
     }
   },
+  mounted(){
+    document.getElementById('app').style.display = 'block';
+    document.getElementById('app-loading').style.display = 'none';
+  },
   methods:{
     ...mapMutations('user',[
         'USER_CHANGE'

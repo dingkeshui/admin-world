@@ -8,3 +8,6 @@ export const LAYOUT_CHANGE = 'LAYOUT_CHANGE'
 
 // 改变用户信息
 export const USER_CHANGE = 'USER_CHANGE'
+
+// app构建时显示loading
+export const APP_LOADING_CHANGE = 'APP_LOADING_CHANGE'
