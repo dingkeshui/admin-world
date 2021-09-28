@@ -26,6 +26,15 @@ const routes = [
     component: index
   },
   {
+    path: "/resume",
+    name: "resume",
+    title:'简历',
+    component: () => import("@/views/resume/index.vue"),
+    meta:{
+      untop:true
+    }
+  },
+  {
     path: "/login",
     name: "login",
     title:'登陆',
