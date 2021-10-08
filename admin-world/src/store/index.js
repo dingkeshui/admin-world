@@ -3,7 +3,7 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-import app from './modules/layout'
+import app from './modules/app'
 import layout from './modules/layout'
 import user from './modules/user'
 

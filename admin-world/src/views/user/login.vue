@@ -1,5 +1,5 @@
 <template>
-    <div class="box">
+    <div :class="['box',{mobile:navigator&&navigator.mobile}]">
         <div>请输入密码</div>
         <div class="pasList">
             <div class="item" v-for="(item,index) in pasLength" :key="index">
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapMutations,mapActions } from 'vuex'
+import { mapMutations,mapActions,mapGetters } from 'vuex'
 
 export default {
     name:'user-login',
@@ -25,6 +25,11 @@ export default {
             // 密码
             pasData:[]
         }
+    },
+    computed:{
+        ...mapGetters('app',[
+        'navigator'
+        ])
     },
     mounted(){
         this.$refs['inp'][0].focus()
@@ -85,6 +90,18 @@ export default {
     flex-direction: column;
     align-content: center;
     justify-content: center;
+    &.mobile{
+        .pasList{
+            .item:nth-child(n+2){
+                margin-left: 0px;
+            }
+            .item{
+                margin: 0px 10px;
+                flex:1;
+                width: auto;
+            }
+        }
+    }
     .pasList{
         margin-top: 5%;
         display: flex;

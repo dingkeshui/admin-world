@@ -6,6 +6,7 @@
                 v-if="!item.children||!item.children.length"
                 :key="index"
                 :to="item.path"
+                @click.native="clickMenuItem"
                 :name="item.name">
                 {{item.title}}
                 </MenuItem>
@@ -26,6 +27,7 @@
 <script>
 import leftMenuItem from "@/components/layout/left-menu-item.vue"
 
+import { mapGetters,mapMutations } from 'vuex'
 export default {
     props:{
         // 要循环的路由列表
@@ -46,7 +48,19 @@ export default {
     mounted(){
     },
     computed:{
-        
+        ...mapGetters('app',[
+            'navigator'
+        ])
+    },
+    methods:{
+        clickMenuItem(){
+            if(this.navigator&&this.navigator.mobile){
+                this.LAYOUT_CHANGE()
+            } 
+        },
+        ...mapMutations('layout',[
+            'LAYOUT_CHANGE'
+        ])
     }
 }
 </script>

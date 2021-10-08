@@ -23,7 +23,8 @@ const routes = [
     path: "/",
     name: "index",
     title:'首页',
-    component: index
+    component: index,
+    redirect:"/resume"
   },
   {
     path: "/resume",
@@ -55,7 +56,7 @@ const routes = [
       {
         path: "/note/index",
         name: "note-index",
-        title:'笔记首页',
+        title:'笔记列表',
         meta:{
           token:true
         },
@@ -73,7 +74,7 @@ const routes = [
       {
         path: "/algorithm/index",
         name: "algorith-index",
-        title:'算法首页',
+        title:'前端算法',
         meta:{
           token:true
         },
@@ -82,7 +83,7 @@ const routes = [
       {
         path: "/algorithm/some",
         name: "algorith-some",
-        title:'算法其他',
+        title:'其他算法',
         meta:{
           token:true
         },

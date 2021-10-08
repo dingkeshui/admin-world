@@ -11,3 +11,6 @@ export const USER_CHANGE = 'USER_CHANGE'
 
 // app构建时显示loading
 export const APP_LOADING_CHANGE = 'APP_LOADING_CHANGE'
+
+// app设备状态
+export const APP_NAVIGATOR_CHANGE = 'APP_NAVIGATOR_CHANGE'

@@ -19,7 +19,7 @@ var getters = {
 const actions = {
     user_login(context,newData){
         return new Promise((resolve,reject)=>{
-            if(newData&&newData.token&&newData.token.toString()=='1,2,3,3,2,1') {
+            if(newData&&newData.token&&newData.token.toString()=='3,1,9,2,0,6') {
                 context.commit('USER_CHANGE',newData)
                 resolve({code:200})
             } else {

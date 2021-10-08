@@ -1,6 +1,7 @@
 <template>
-  <div class="home">
+  <div :class="['home',{mobile:navigator&&navigator.mobile}]">
     <div class="main">
+        <div class="home-tips" v-if="navigator&&navigator.mobile">本站UI框架(iView)基于PC端创建,个人修改后兼容移动端,但<span>PC端体验更佳!</span></div>
         <div class="item">
             <div class="item-title"><span>个人信息</span></div>
             <div class="item-list">
@@ -26,6 +27,9 @@
             </div>
             <div class="item-list">
                 <div class="info"><div class="text">擅长vue全家桶，vue3+vite，精通小程序，webpack，typescript，上线5款程序以上。有独自开发从零到上线的经验。</div></div>
+            </div>
+            <div class="item-list">
+                <div class="info"><div class="text">热爱钻研新鲜技术</div></div>
             </div>
         </div>
         <div class="item">
@@ -227,7 +231,7 @@
         <div class="item">
           <div class="item-title"><span>自我评价</span></div>
           <div class="item-list">
-              <div class="info"><div class="title ol"></div><div class="text">热爱专研技术知识。编程基础扎实，web前端技术应用多，涉及广，用含有丰富的框架/组件化开发经验。</div></div>
+              <div class="info"><div class="title ol"></div><div class="text">热爱钻研技术知识。编程基础扎实，web前端技术应用多，涉及广，用含有丰富的框架/组件化开发经验。</div></div>
           </div>
           <div class="item-list">
               <div class="info"><div class="title ol"></div><div class="text">负责从0开始的电商项目多，了解电商类项目整理流程，对电商类项目的开发有一个整体的认知。</div></div>
@@ -240,12 +244,16 @@
           </div>
         </div>
     </div>
+    <div class="home-tips">
+      本站由 <br v-if="navigator&&navigator.mobile">腾讯云/CentOS/Apache/Vue/VueX/Webpack/iView/Scss<br v-if="navigator&&navigator.mobile"> 提供技术支持
+    </div>
   </div>
 </template>
 
 <script>
 import UrlItem from '@/components/common/url.vue'
 
+import { mapGetters,mapMutations } from 'vuex'
 export default {
   name: "resume",
   data(){
@@ -253,8 +261,17 @@ export default {
      value:''
    } 
   },
+  computed:{
+    ...mapGetters('app',[
+      'navigator'
+    ])
+  },
   components: {
     UrlItem
+  },
+  mounted(){
+  },
+  methods:{
   }
 };
 </script>
@@ -265,8 +282,34 @@ $bg: rgb(53,66,88);
     width: 70%;
     margin: 0px auto;
     background-color:$bg;
-    padding: 30px 30px;
+    padding: 30px 30px 10px 30px;
     border-radius: 10px;
+    .home-tips{
+      font-size: 12px;
+      color: #fff;
+      padding-top: 10px;
+      text-align: center;
+      span{
+        color: #2b85e4;
+      }
+    }
+    &.mobile{
+      width: 100%;
+      background-color: #fff;
+      padding: 0px;
+      .home-tips{
+        padding: 0px 30px;
+        color: #354258;
+      }
+    }
+    .item-list{
+      display: initial !important;
+      .info{
+        .text{
+          word-break: break-all;
+        }
+      }
+    }
 }
 .main{
    background-color: #fff;
@@ -320,7 +363,7 @@ $bg: rgb(53,66,88);
                 content: '';
                 width: 10px;
                 height: 10px;
-                background-color: black;
+                background-color: #354258;
                 border-radius: 10px;
               }
             }
