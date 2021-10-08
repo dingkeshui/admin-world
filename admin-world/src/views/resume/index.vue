@@ -10,11 +10,15 @@
             </div>
             <div class="item-list">
                 <div class="info"><div class="title">年龄:</div><div class="text">26</div></div>
-                <div class="info"><div class="title">工作时间:</div><div class="text">4年</div></div>
+                <div class="info"><div class="title">地点:</div><div class="text">北京</div></div>
             </div>
             <div class="item-list">
                 <div class="info"><div class="title">电话:</div><div class="text">17602226923</div></div>
                 <div class="info"><div class="title">邮箱:</div><div class="text">1163621715@qq.com</div></div>
+            </div>
+            <div class="item-list">
+                <div class="info"><div class="title">工作时间:</div><div class="text">4年</div></div>
+                <div class="info"><div class="title">求职意向:</div><div class="text">前端工程师</div></div>
             </div>
         </div>
         <div class="item">
