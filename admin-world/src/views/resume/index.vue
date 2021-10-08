@@ -299,11 +299,14 @@ $bg: rgb(53,66,88);
       padding: 0px;
       .home-tips{
         padding: 0px 30px;
-        color: #354258;
+        color: $bg;
       }
       .item-list{
-        display: initial !important;
+        display: block !important;
         .info{
+          &~.info{
+            margin-top: 10px;
+          }
           .text{
             word-break: break-all;
           }
@@ -363,7 +366,7 @@ $bg: rgb(53,66,88);
                 content: '';
                 width: 10px;
                 height: 10px;
-                background-color: #354258;
+                background-color: $bg;
                 border-radius: 10px;
               }
             }

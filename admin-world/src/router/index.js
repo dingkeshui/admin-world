@@ -19,15 +19,14 @@ import content from "@/components/layout/page-content.vue";
 Vue.use(VueRouter);
 
 const routes = [
+  // {
+  //   path: "/",
+  //   name: "index",
+  //   title:'首页',
+  //   component: index,
+  // },
   {
     path: "/",
-    name: "index",
-    title:'首页',
-    component: index,
-    redirect:"/resume"
-  },
-  {
-    path: "/resume",
     name: "resume",
     title:'简历',
     component: () => import("@/views/resume/index.vue"),

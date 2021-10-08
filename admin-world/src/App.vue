@@ -54,6 +54,10 @@ export default {
       this.USER_CHANGE(userInfo)
     }
     this.APP_NAVIGATOR_CHANGE(this.getNavigatorInfo())
+    if(this.userAgent&&this.userAgent.mobile){
+      this.USER_CHANGE(false)
+    }
+    this.LAYOUT_CHANGE(false)
   },
   mounted(){
     document.getElementById('app').style.display = 'block';
