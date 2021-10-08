@@ -26,10 +26,10 @@
                 <div class="info"><div class="title">vue博客:</div><div class="text"><UrlItem url="https://segmentfault.com/a/1190000011106939" /></div></div>
             </div>
             <div class="item-list">
-                <div class="info"><div class="text">擅长vue全家桶，vue3+vite，精通小程序，webpack，typescript，上线5款程序以上。有独自开发从零到上线的经验。</div></div>
+                <div class="info"><div class="title ol"></div><div class="text">擅长vue全家桶，vue3+vite，精通小程序，webpack，typescript，上线5款程序以上。有独自开发从零到上线的经验。</div></div>
             </div>
             <div class="item-list">
-                <div class="info"><div class="text">热爱钻研新鲜技术</div></div>
+                <div class="info"><div class="title ol"></div><div class="text">热爱钻研新鲜技术</div></div>
             </div>
         </div>
         <div class="item">
@@ -301,12 +301,12 @@ $bg: rgb(53,66,88);
         padding: 0px 30px;
         color: #354258;
       }
-    }
-    .item-list{
-      display: initial !important;
-      .info{
-        .text{
-          word-break: break-all;
+      .item-list{
+        display: initial !important;
+        .info{
+          .text{
+            word-break: break-all;
+          }
         }
       }
     }
