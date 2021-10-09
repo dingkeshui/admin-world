@@ -6,6 +6,7 @@
                 <span v-if="!(index==pasLength-1&&pasLength==pasData.length)">{{pasData[index]}}</span>
                 <input :ref="'inp'" maxlength="1" v-show="(pasData.length===index&&pasData[index]==null)||(index==pasLength-1&&pasLength==pasData.length)" v-model="pasData[index]" type="text">
             </div>
+            <div :class="['tips',{show:showErrInfoDOM}]" v-show="showErrInfo">密码错误</div>
         </div>
         <div class="butBox"><Button shape="circle" @click="goBack" icon="ios-arrow-back"></Button></div>
     </div>
@@ -23,7 +24,10 @@ export default {
             //  密码长度
             pasLength:6,
             // 密码
-            pasData:[]
+            pasData:[],
+            // 错误信息
+            showErrInfo:false,
+            showErrInfoDOM:false,
         }
     },
     computed:{
@@ -53,6 +57,19 @@ export default {
         }
     },
     watch:{
+        showErrInfo(newVal,oldVal){
+            if(newVal){
+                setTimeout(res=>{
+                    this.showErrInfoDOM = true
+                },100)
+                setTimeout(res=>{
+                    this.showErrInfoDOM = false
+                },3000)
+                setTimeout(res=>{
+                    this.showErrInfo = false
+                },3500)
+            }
+        },
         pasData:{
             handler:function(newVal,oldVla){
                 if(newVal.length==this.pasLength){
@@ -63,10 +80,18 @@ export default {
                                 path:this.to
                             })
                         } else {
-                            this.$Message.error(res.msg||'登陆失败');
+                            if(this.navigator&&this.navigator.mobile){
+                                this.showErrInfo = true
+                            } else {
+                                this.$Message.error(res.msg||'登陆失败');
+                            }
                         }
                     }).catch(res=>{
-                        this.$Message.error(res.msg||'登陆失败');
+                        if(this.navigator&&this.navigator.mobile){
+                            this.showErrInfo = true
+                        } else {
+                            this.$Message.error(res.msg||'登陆失败');
+                        }
                     })
                 }
                 this.$nextTick(()=>{
@@ -107,6 +132,21 @@ export default {
         display: flex;
         align-content: center;
         justify-content: center;
+        position: relative;
+        .tips{
+            position: absolute;
+            bottom: -25px;
+            left: 0px;
+            width: 100vw;
+            text-align: center;
+            color: #ed4014;
+            font-size: 12px;
+            transition: all 0.5s;
+            opacity: 0;
+            &.show{
+                opacity: 1;
+            }
+        }
         .item:nth-child(n+2){
             margin-left: 20px;
         }

@@ -1,7 +1,7 @@
 <template>
   <div id="app" :class="[{mobile:navigator&&navigator.mobile}]">
     <Layout>
-      <Sider v-if="!navigator||!navigator.mobile" v-show="!$route.meta.unleft" hide-trigger :class="[{hidden:menuType}]">
+      <Sider v-if="!(navigator&&navigator.mobile)" v-show="!$route.meta.unleft" hide-trigger :class="[{hidden:menuType}]">
         <left-menu />
       </Sider>
       <div v-else :class="['mobile-menu-box',{hidden:menuType}]" @click="LAYOUT_CHANGE">
@@ -54,10 +54,9 @@ export default {
       this.USER_CHANGE(userInfo)
     }
     this.APP_NAVIGATOR_CHANGE(this.getNavigatorInfo())
-    if(this.userAgent&&this.userAgent.mobile){
-      this.USER_CHANGE(false)
+    if(this.navigator&&this.navigator.mobile){
+      this.LAYOUT_CHANGE(false)
     }
-    this.LAYOUT_CHANGE(false)
   },
   mounted(){
     document.getElementById('app').style.display = 'block';
