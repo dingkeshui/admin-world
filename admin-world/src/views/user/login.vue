@@ -4,7 +4,12 @@
         <div class="pasList">
             <div class="item" v-for="(item,index) in pasLength" :key="index">
                 <span v-if="!(index==pasLength-1&&pasLength==pasData.length)">{{pasData[index]}}</span>
-                <input :ref="'inp'" maxlength="1" type="number" v-show="(pasData.length===index&&pasData[index]==null)||(index==pasLength-1&&pasLength==pasData.length)" v-model="pasData[index]" type="text">
+                <input 
+                :ref="'inp'" 
+                maxlength="1" 
+                type="text"
+                v-show="(pasData.length===index&&pasData[index]==null)||(index==pasLength-1&&pasLength==pasData.length)" v-model="pasData[index]"
+                >
             </div>
             <div :class="['tips',{show:showErrInfoDOM}]" v-show="showErrInfo">密码错误</div>
         </div>

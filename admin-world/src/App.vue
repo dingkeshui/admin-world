@@ -100,6 +100,7 @@ export default {
     height: initial;
   }
   .mobile-menu-box{
+    z-index: 100;
     transition: all 0.3s;
     &.hidden{
       transform: translateX(-100%);
