@@ -119,7 +119,7 @@
                   <div class="info"><div class="title">1.7.</div><div class="text">小程序会员体系功能开发。</div></div>
               </div>
               <div class="item-list">
-                  <div class="info info-title"><div class="title">2.</div><div class="text">互助购M站/内嵌H5</div></div>
+                  <div class="info info-title"><div class="title">2.</div><div class="text">互助购购M站/内嵌H5</div></div>
               </div>
               <div class="item-list">
                   <div class="info"><div class="title">2.1.</div><div class="text">M站的数据请求封装，路由拦截的实现。</div></div>
@@ -137,7 +137,7 @@
                   <div class="info"><div class="title">2.5.</div><div class="text">M站/H5神策数据埋点功能，活动专题页功能开发。</div></div>
               </div>
               <div class="item-list">
-                  <div class="info info-title"><div class="title">3.</div><div class="text">互助后运营后台/商家后台</div></div>
+                  <div class="info info-title"><div class="title">3.</div><div class="text">互助购后运营后台/商家后台</div></div>
               </div>
               <div class="item-list">
                   <div class="info"><div class="title">3.1.</div><div class="text">运营平台-内购会后台管理系统开发。</div></div>
