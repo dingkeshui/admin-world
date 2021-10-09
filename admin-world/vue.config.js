@@ -93,7 +93,13 @@ module.exports = {
     
     // 是一个函数，会接收一个基于 webpack-chain 的 ChainableConfig 实例。允许对内部的 webpack 配置进行更细粒度的修改。
     // Type: Function
-    chainWebpack:()=>{return {}},
+    chainWebpack:(config)=>{
+        config.plugin('html')
+        .tap(args => {
+          args[0].title = "丁明辉(前端)";
+          return args;
+        })
+    },
 
     // 所有 webpack-dev-server 的选项都支持。注意：
     // 有些值像 host、port 和 https 可能会被命令行参数覆写。
