@@ -24,7 +24,7 @@
         <div class="item">
             <div class="item-title"><span>个人优势</span></div>
             <div class="item-list">
-                <div class="info"><div class="title">个人网站:</div><div class="text"><UrlItem url="http://101.42.99.137" /></div></div>
+                <div class="info"><div class="title">个人网站:</div><div class="text"><UrlItem url="http://www.dingmh.cn" /></div></div>
             </div>
             <div class="item-list">
                 <div class="info"><div class="title">vue博客:</div><div class="text"><UrlItem url="https://segmentfault.com/a/1190000011106939" /></div></div>

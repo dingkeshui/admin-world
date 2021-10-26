@@ -61,6 +61,9 @@ export default {
   mounted(){
     document.getElementById('app').style.display = 'block';
     document.getElementById('app-loading').style.display = 'none';
+
+    var performance = window.performance;
+    console.log('performance',performance)
   },
   methods:{
     getNavigatorInfo(){
