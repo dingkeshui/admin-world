@@ -250,6 +250,7 @@
     </div>
     <div class="home-tips">
       本站由 <br v-if="navigator&&navigator.mobile">腾讯云/CentOS/Apache/Vue/VueX/Webpack/iView/Scss<br v-if="navigator&&navigator.mobile"> 提供技术支持
+      <div class="home-tips-a"><a href="https://beian.miit.gov.cn/">京ICP备2021032015号-1</a></a></div>
     </div>
   </div>
 </template>
@@ -295,6 +296,11 @@ $bg: rgb(53,66,88);
       text-align: center;
       span{
         color: #2b85e4;
+      }
+      &-a{
+        a {
+            color: #fff;
+        }
       }
     }
     &.mobile{
